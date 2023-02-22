@@ -1,9 +1,29 @@
-yapılanlar:
+hazırrlık:
     1. react kurulumu ve dosya temizliği yapıldı
     2. npm start la proje ayağa kaldırıldı
     3. bootstrap eklendi
     4. db.json dosyasına kayıtlar eklendi
     5. package.json'a "json-server" adında script eklendi portu 3004 olarak belirlendi
-    6. npm run json-server 
-    7. npm run react-router-dom
-    8.genel bir header companenti hazırlanmsı
+    6. npm install json-server 
+    7. npm install react-router-dom
+    8. npm install axios
+    8.genel bir header companenti hazırlandı
+    9.oluşturulan her sayfa app.js'ye import edilir ve her bir sayfa için bir "route" oluşturulur.
+      9.1. route iki bileşenden oluşur birisi "path", diğeri de "element". Path oluşturulan companenentin ismine uyumlu bizim belirlediğimiz bir isim.Element de oluşturduğumuz companentin ismi.
+      örnek:
+      path="/add-person"
+      element={<AddPerson/>}
+
+projenin bölümleri:
+create:
+yeni bir kayıt ekleme sayfası oluşturuldu.bootstrap'tan form eklendi. eklenen forma girilen değerler onsubmit yapılarak ,her input için bir state oluşturuldu. Formda değişen değerler bu statelere set edildi.
+yeni girilen veriler axiosla veri tabanına post metoduyla gönderildi.
+Read:yeni eklenen veriler okunarak listede görünür hale getirildi. bunun için CompanentDidUpdate methodu uygulandı.
+Delete: Sil butonuna basılan kayıtın id'sini bir fonksiyonla "deletePerson(id)"çağırıp windows.confirm kullanarak kullanıcıdan silme onayı alınıp axios'la  sunucuya delete isteği gönderilir.
+ve  o kayıt silinir.
+Update:
+1."güncelle" butonuna basıldığında yeni bir sayfaya yönlendirilir
+2.Path bölümüne bir parametre değişken atadıysak o parametreyle açılan sayfanın url'sini okumak için "useParam" kullanılır.Yani kısacası import edildiği sayfanın urlindeki parametreyi okur.
+3. pathde tanımlanan id bilgisine sahip kayıt veri tabanından çekilir.Eğer sayfa ilk yüklenirken veri çekilecekse CompanentDidMount kullanılır.bunun için useEffect ve useState import edilip oluşturulur.axios import edilerek get isteğiyle veri çekilir.
+güncellenecek kaydın ıdsi güncelle butonuna basıldığığında paramatre olarak taşınacak url de güncelleme sayfasına .Id use paramla okunacak, okunan idli kayıt axios la veri tabanından çekilecek sonrarında ekle sayfasındaki formdan tekrar güncelle sayfasında da oluşturlup formun içi bu value değerleriyle doldurulur..
+4. Kullanıcı verileri güncelledikten sonra formdaki değerler kontrol edilip kaydedilerek güncelleme  işlemi gerçekleştirilmiş olacak.

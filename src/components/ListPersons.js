@@ -40,16 +40,16 @@ const ListPersons=({persons,didUpdate,setDidUpdate})=>{
                         </tr>
                     ):(
                         <>
-                        {persons.map((person,index)=>(
-                          <tr key="person.id">
+                        {persons.map((persons,index)=>(
+                          <tr key="persons.id">
                                 <th scope="row">index+1</th>
                                 <td> {persons.firstName} </td>
                                 <td> {persons.lastName} </td>
                                 <td> {persons.telNumber} </td>
                                 <td>
                                   <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button onClick={()=>deletePerson()} type="button" className="btn btn-sm btn-outline-danger">Sil</button>
-                                    <Link type="button" className="btn btn-sm btn-outline-primary">Güncelle</Link>
+                                    <button onClick={()=>deletePerson(persons.id)} type="button" className="btn btn-sm btn-outline-danger">Sil</button>
+                                    <Link to={`/edit-person/${persons.id}`} type="button" className="btn btn-sm btn-outline-primary">Güncelle</Link>
                                   </div>
                                 </td>
                             </tr>

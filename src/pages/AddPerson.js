@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import Header from "../components/Header";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ const AddPerson=()=>{
     const[firstName,setFirstName]=useState("");
     const[lastName,setLastName]=useState("");
     const[telNumber,setTelNumber]=useState("");
+    const [persons,setPersons]=useState("")
     const savePerson=(event)=>{
         event.preventDefault()
     
@@ -14,6 +15,11 @@ const AddPerson=()=>{
     if (firstName==="" || lastName==="" || telNumber==="") {
         alert("Bütün alanlar zorunludur")
        return
+    }
+    const hasPerson=persons.find(item=>item.persons.telNumber===telNumber)
+    if (hasPerson!== undefined){
+        alert(`${telNumber} numarası zaten kayıtlı`)
+        return
     }
     const newPerson={
         id:String(new Date().getTime()),
@@ -27,7 +33,16 @@ const AddPerson=()=>{
     })
     .catch(err=>{})
 };
-    
+   useEffect(()=>{
+    axios.get("http://localhost:3004/persons")
+    .then(res=>{
+        setPersons(res.data)
+    })
+    .catch(err=>{})
+   },[]) 
+   if (persons===null){
+    return null
+   }
     return(
         <div>
             <Header/>
@@ -51,7 +66,7 @@ const AddPerson=()=>{
                     </div>
                     <div className="mb-3">
                     <label htmlFor="number" className="form-label">Telefon Numarası</label>
-                    <input type="text" className="form-control" id="number" placeholder="05xxxxxxxx"value="telNumber"
+                    <input type="number" className="form-control" id="number" placeholder="05xxxxxxxx"value="telNumber"
                     onChange={(event)=>setTelNumber(event.target.value)}/>
                     </div>
 
