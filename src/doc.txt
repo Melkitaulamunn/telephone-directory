@@ -1,0 +1,9 @@
+yapılanlar:
+    1. react kurulumu ve dosya temizliği yapıldı
+    2. npm start la proje ayağa kaldırıldı
+    3. bootstrap eklendi
+    4. db.json dosyasına kayıtlar eklendi
+    5. package.json'a "json-server" adında script eklendi portu 3004 olarak belirlendi
+    6. npm run json-server 
+    7. npm run react-router-dom
+    8.genel bir header companenti hazırlanmsı

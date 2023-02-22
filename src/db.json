@@ -1,0 +1,17 @@
+{
+    "persons":[{
+        "id":"1",
+        "firstName":"Ayşe",
+        "lastName":"Albayrak",
+        "telNumber":"0555666799"
+    },
+    {
+        "id":"2",
+        "firstName":"İlayda",
+        "lastName":"YILMAZ",
+        "telNumber":"0555666799"
+
+    }
+
+    ]
+}
