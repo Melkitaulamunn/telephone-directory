@@ -26,4 +26,5 @@ Update:
 2.Path bölümüne bir parametre değişken atadıysak o parametreyle açılan sayfanın url'sini okumak için "useParam" kullanılır.Yani kısacası import edildiği sayfanın urlindeki parametreyi okur.
 3. pathde tanımlanan id bilgisine sahip kayıt veri tabanından çekilir.Eğer sayfa ilk yüklenirken veri çekilecekse CompanentDidMount kullanılır.bunun için useEffect ve useState import edilip oluşturulur.axios import edilerek get isteğiyle veri çekilir.
 güncellenecek kaydın ıdsi güncelle butonuna basıldığığında paramatre olarak taşınacak url de güncelleme sayfasına .Id use paramla okunacak, okunan idli kayıt axios la veri tabanından çekilecek sonrarında ekle sayfasındaki formdan tekrar güncelle sayfasında da oluşturlup formun içi bu value değerleriyle doldurulur..
-4. Kullanıcı verileri güncelledikten sonra formdaki değerler kontrol edilip kaydedilerek güncelleme  işlemi gerçekleştirilmiş olacak.
+4. Kullanıcı verileri güncelledikten sonra formdaki değerler kontrol edilip kaydedilerek güncelleme  işlemi gerçekleştirilmiş olur.
+5. Güncelleme işlemi başarılıysa anasayfaya dönülür , hatalıysa bir alert mesajı verilir.

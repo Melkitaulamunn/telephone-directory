@@ -45,7 +45,7 @@ const AddPerson=()=>{
    }
     return(
         <div>
-            <Header/>
+            <Header page={"add-person"}/>
             <div className="container my-5">
                 <form onSubmit={savePerson}>
                     <div className="mb-3">

@@ -16,7 +16,7 @@ import axios from "axios";
     if (persons===null) return null
     return(
         <div className="container my-5">
-            <Header/>
+            <Header />
             <ListPersons persons={persons} didUpdate={didUpdate} setDidUpdate={setDidUpdate}/>
             <h1>Anasayfa</h1>
         </div>

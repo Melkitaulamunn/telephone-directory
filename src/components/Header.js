@@ -2,16 +2,16 @@ import React from "react";
 import {Link} from "react-router-dom"
 const Header=({page="home"})=>{
     var bgClass="bg-primary"
-    if(page=="add-student"){
+    if(page==="add-person"){
       bgClass="bg-success"
     }
-    if(page==="edit-student"){
+    if(page==="edit-person"){
       bgClass="bg-danger"
     }
     return(<nav className={`navbar navbar-expand-sm navbar-dark ${bgClass}`}>
     <div className="container-fluid">
       <div className="navbar-brand">
-        Student App
+        Person App
       </div>
       <button
         className="navbar-toggler"

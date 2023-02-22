@@ -1,9 +1,12 @@
 import React,{ useEffect ,useState} from "react";
 import Header from "../components/Header";
 import {useParams} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const EditPerson=()=>{
-    const params=useParams()
+    const params=useParams();
+    const navigate=useNavigate();
+
     const [editPerson,setEditPerson]=useState(null);
     const[firstName,setFirstName]=useState("");
     const[lastName,setLastName]=useState("");
@@ -22,6 +25,13 @@ const EditPerson=()=>{
         telNumber:telNumber
     }
     axios.put(`http://localhost:3004/persons/${params.personId}`,editedPerson)
+    .then (res=>{
+        navigate("/")
+
+    })
+    .catch (err=>{
+        alert("Güncelleme işlemi esnasında bir hata oluştu.")
+    })
     }
     
     useEffect(()=>{
@@ -38,7 +48,7 @@ const EditPerson=()=>{
     if (editPerson===null) {return null}  
     return(
         <div>
-          <Header/>
+          <Header page={"edit-person"}/>
             <div className="container my-5">
                 <form onSubmit={edittPerson}>
                     <div className="mb-3">
